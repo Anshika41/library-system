@@ -1,12 +1,14 @@
 package com.example.librarysystem.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Borrow {
 
     @Id
@@ -14,9 +16,11 @@ public class Borrow {
     private int id;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
+    @JoinColumn(name = "book_id")
     private Book book;
 
     private LocalDate borrowDate;

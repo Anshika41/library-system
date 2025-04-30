@@ -12,7 +12,5 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     //Book findAll(Book book); --JPA already provided findAll() so no need to write
 
-    Optional<Book> findById(int id);
-
-
+    //Optional<Book> findById(int id);
 }

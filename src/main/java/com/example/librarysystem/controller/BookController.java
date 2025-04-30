@@ -1,6 +1,7 @@
 package com.example.librarysystem.controller;
 
 import com.example.librarysystem.entity.Book;
+import com.example.librarysystem.entity.Borrow;
 import com.example.librarysystem.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,14 @@ public class BookController {
     public Book updateBook(@PathVariable int id, @RequestBody Book updatedBook){
         return bookService.updateBook(id, updatedBook);
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteBook(@PathVariable int id){
+        bookService.deleteBook(id);
+       return "Book deleted successfully";
+
+    }
+
 
 
 }

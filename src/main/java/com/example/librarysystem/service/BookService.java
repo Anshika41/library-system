@@ -1,18 +1,25 @@
 package com.example.librarysystem.service;
 
 import com.example.librarysystem.entity.Book;
+import com.example.librarysystem.entity.Borrow;
+import com.example.librarysystem.entity.User;
 import com.example.librarysystem.repository.BookRepository;
+import com.example.librarysystem.repository.BorrowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class BookService {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private BorrowRepository borrowRepository;
 
     //Create Book
     public Book addBook(Book book){
@@ -31,25 +38,19 @@ public class BookService {
     }
 
     //Update a book
-    public Book updateBook(int id, Book updatedBook){
-        //Find the book by id
-        Optional<Book> existingBookOpt = bookRepository.findById(id);
-
-        //update the book
-        if (existingBookOpt.isPresent()){
-            Book existingBook = existingBookOpt.get();
-
-            // Update book details
-            existingBook.setTitle(updatedBook.getTitle());
-            existingBook.setAuthor(updatedBook.getAuthor());
-            existingBook.setIsbn(updatedBook.getIsbn());
-            existingBook.setStatus(updatedBook.getStatus());
-
-            // Save and return the updated book
-            return bookRepository.save(existingBook);
-        }
-        else{
-            throw new RuntimeException("Book not found with ID " + id);
-        }
+    public Book updateBook(int id, Book updatedBook) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Book not found"));
+        book.setTitle(updatedBook.getTitle());
+        book.setAuthor(updatedBook.getAuthor());
+        book.setIsbn(updatedBook.getIsbn());
+        return bookRepository.save(book);
     }
+
+    //Delete book
+    public void deleteBook(int id){
+        bookRepository.deleteById(id);
+    }
+
+
 }
