@@ -3,12 +3,12 @@
 A simple CRUD-based Library Management System built with **Java, Spring Boot, Hibernate, and MySQL**.
 
 🚀 Features
--📖 View available books
--➕ Add a book (Admin)
--✏️ Update book information
--❌ Delete a book
--📥 Borrow a book
--📤 Return a book
+- 📖 View available books
+- ➕ Add a book (Admin)
+- ✏️ Update book information
+- ❌ Delete a book
+- 📥 Borrow a book
+- 📤 Return a book
 
 ## 🚀 Tech Stack
 
