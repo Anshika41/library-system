@@ -1,7 +1,14 @@
 # 📚 Library Management System
 
-A Spring Boot-based CRUD project for managing books in a library.
----
+A simple CRUD-based Library Management System built with **Java, Spring Boot, Hibernate, and MySQL**.
+
+🚀 Features
+-📖 View available books
+-➕ Add a book (Admin)
+-✏️ Update book information
+-❌ Delete a book
+-📥 Borrow a book
+-📤 Return a book
 
 ## 🚀 Tech Stack
 
@@ -11,3 +18,13 @@ A Spring Boot-based CRUD project for managing books in a library.
 ![Maven](https://img.shields.io/badge/Maven-3.8.6-C71A36?style=for-the-badge&logo=apache-maven)
 ![Lombok](https://img.shields.io/badge/Lombok-%231E90FF?style=for-the-badge&logo=lombok)
 
+## 🧪 API Endpoints
+
+| Method | URL                   | Description           |
+|--------|------------------------|-----------------------|
+| GET    | `/api/books/available` | View available books  |
+| POST   | `/api/books`           | Add a book (Admin)    |
+| PUT    | `/api/books/{id}`      | Update book details   |
+| DELETE | `/api/books/{id}`      | Delete a book         |
+| POST   | `/api/borrow`          | Borrow a book         |
+| POST   | `/api/return`          | Return a book         |
